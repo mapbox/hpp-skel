@@ -1,0 +1,22 @@
+{
+  "name": "hpp-skel",
+  "version": "1.0.0",
+  "description": "Skeleton for C++ header-only libraries that can be included into other C++ projects.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/hpp-skel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/hpp-skel/issues"
+  },
+  "homepage": "https://github.com/mapbox/hpp-skel#readme"
+}
