@@ -1,0 +1,34 @@
+language: generic
+
+matrix:
+  include:
+    - os: linux
+      sudo: false
+      env: CXX=g++-5
+      addons:
+        apt:
+          sources: [ 'ubuntu-toolchain-r-test' ]
+          packages: [ 'g++-5' ]
+    - os: linux
+      sudo: false
+      env: CXX=clang++-3.8
+      addons:
+        apt:
+          sources: [ 'ubuntu-toolchain-r-test' ]
+          packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
+    - os: osx
+      osx_image: xcode7.3
+
+cache: apt
+
+install:
+  - | 
+    if [[ ${CXX} =~ "clang" ]] && [[ $(uname -s) == "Linux" ]]; then
+      git clone --depth=1 https://github.com/mapbox/mason.git ./.mason
+      ./.mason/mason install clang 3.8.0
+      export PATH=$(./.mason/mason prefix clang 3.8.0)/bin:${PATH}
+      which clang++
+    fi
+
+script:
+  - make test
