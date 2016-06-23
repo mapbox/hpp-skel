@@ -1,9 +1,9 @@
-#include <mapbox/hello_world.hpp>
+#include <hello_world.hpp>
 
 #include <iostream>
 #include <cassert>
 
-using namespace mapbox::hello_world;
+using namespace hello_world;
 
 static void test_exclaim() {
     std::string value = exclaim ("hello");

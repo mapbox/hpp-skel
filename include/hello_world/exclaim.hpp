@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-namespace mapbox { namespace hello_world {
+namespace hello_world {
 
 /**
  * Add an exclamation point to the end of a string
  * @memberof hello_world
  * @name exclaim
- * @param {std::string} message
- * @returns {std::string} message!
+ * @param {std::String} message
+ * @returns {std::String} message!
  * @example
  * std::string value = exclaim ("hello");
  * cout << value; // => 'hello!'
@@ -21,4 +21,3 @@ std::string exclaim (std::string message)
 }
 
 } // end hello_world namespace
-} // end of mapbox namespace

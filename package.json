@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs": "documentation build include/hello_world.hpp include/hello_world/*.hpp --polyglot -f md -o API.md"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mapbox/hpp-skel/issues"
   },
-  "homepage": "https://github.com/mapbox/hpp-skel#readme"
+  "homepage": "https://github.com/mapbox/hpp-skel#readme",
+  "devDependencies": {
+    "documentation": "^4.0.0-beta5"
+  }
 }
