@@ -6,5 +6,12 @@ test: tests/unit/* include/hello_world/* Makefile
 	$(CXX) tests/unit/*.cpp $(CXXFLAGS) -o test
 	./test
 
-docs:
-	npm run docs
+SOURCES = $(include/hello_world.hpp)
+HEADERS = $(wildcard include/hello_world/*.hpp)
+COMMON_DOC_FLAGS = --report --output docs $(HEADERS)
+
+cldoc:
+	pip install cldoc --user
+
+docs: cldoc
+	cldoc generate $(CXXFLAGS) -- $(COMMON_DOC_FLAGS)

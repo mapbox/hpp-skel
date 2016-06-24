@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "docs": "documentation build include/hello_world.hpp include/hello_world/*.hpp --polyglot -f md -o API.md"
+    "test": "make test"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,5 @@
   "bugs": {
     "url": "https://github.com/mapbox/hpp-skel/issues"
   },
-  "homepage": "https://github.com/mapbox/hpp-skel#readme",
-  "devDependencies": {
-    "documentation": "^4.0.0-beta5"
-  }
+  "homepage": "https://github.com/mapbox/hpp-skel#readme"
 }
