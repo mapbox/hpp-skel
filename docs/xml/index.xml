@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8'?>
+<index xmlns="http://jessevdk.github.com/cldoc/1.0">
+  <namespace name="hello_world" ref="hello_world#hello_world" />
+  <report name="Documentation generator" ref="report" />
+</index>
