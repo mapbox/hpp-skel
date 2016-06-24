@@ -7,7 +7,7 @@ using namespace hello_world;
 
 static void test_exclaim() {
     std::string value = exclaim ("hello");
-    assert(value == "hello!");
+    assert(value == "!hello!");
 }
 
 int main() {
