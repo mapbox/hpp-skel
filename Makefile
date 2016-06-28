@@ -1,14 +1,29 @@
-CXXFLAGS += -I include --std=c++14 -Wall -Wextra -Werror
+CC := $(CC)
+CXX := $(CXX)
+CXXFLAGS := $(CXXFLAGS) -Iinclude -std=c++11
+RELEASE_FLAGS := -O3 -DNDEBUG
+WARNING_FLAGS := -Wall -Wextra -pedantic -Werror -Wsign-compare -Wfloat-equal -Wfloat-conversion -Wshadow -Wno-unsequenced
+DEBUG_FLAGS := -g -O0 -DDEBUG -fno-inline-functions -fno-omit-frame-pointer
 
-default: test
+ifeq ($(BUILDTYPE),Release)
+	FINAL_FLAGS := -g $(WARNING_FLAGS) $(RELEASE_FLAGS)
+else
+	FINAL_FLAGS := -g $(WARNING_FLAGS) $(DEBUG_FLAGS)
+endif
 
-test: tests/unit/* include/hello_world/* Makefile
-	$(CXX) tests/unit/*.cpp $(CXXFLAGS) -o test
-	./test
+default: test-$(BUILDTYPE)
+
+test-$(BUILDTYPE): tests/unit/* include/hello_world/* Makefile
+	$(CXX) $(FINAL_FLAGS) tests/unit/*.cpp $(CXXFLAGS) -o test-$(BUILDTYPE)
+	./test-$(BUILDTYPE)
 
 SOURCES = $(include/hello_world.hpp)
 HEADERS = $(wildcard include/hello_world/*.hpp)
 COMMON_DOC_FLAGS = --report --output docs $(HEADERS)
+
+clean:
+	rm -f test-Release
+	rm -f test-Debug
 
 cldoc:
 	pip install cldoc --user
