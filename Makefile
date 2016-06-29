@@ -19,6 +19,8 @@ test-$(BUILDTYPE): tests/unit/* include/hello_world/* Makefile
 	$(CXX) $(FINAL_FLAGS) tests/unit/*.cpp $(CXXFLAGS) -o test-$(BUILDTYPE)
 	./test-$(BUILDTYPE)
 
+test: test-$(BUILDTYPE)
+
 SOURCES = $(include/hello_world.hpp)
 HEADERS = $(wildcard include/hello_world/*.hpp)
 COMMON_DOC_FLAGS = --report --output docs $(HEADERS)
