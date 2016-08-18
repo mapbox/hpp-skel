@@ -12,7 +12,7 @@ Skeleton for C++ header-only libraries that can be included into other C++ proje
 
 This repository itself is a helper library. To use it for a specific project, make sure to update the following information:
 
-* Change the `include/mapbox` directory to a more relevant namespace for your project
+* Change the `include/` directory to a more relevant namespace for your project
 * all occurances of Hello World (i.e. `test/unit/hello_world.cpp`) are just examples. Rename this files as appropriate.
 * the `package.json` is included specifically if you'd like to publish your header files to NPM. If you intend to do this, update the information in that file.
 
@@ -23,6 +23,14 @@ In general, there are three ways to include this header-only library:
 ##### Publish to NPM
 
 This repo includes a `package.json` and `.npmignore` that allow for the library to be published to npm. In another project, you can `npm install <PROJECT_NAME> --save` to give yourself access to the `.hpp` files. `hpp-skel` files, for instance, can be found at `node_modules/hpp-skel/include/hello_world.hpp`.
+
+The **include_dirs.js** file allows you to include header files using Node.js's `require()` syntax like this:
+
+```
+"include_dirs" : [
+    "<!(node -e \"require('hpp-skel')\")"
+]
+```
 
 ##### Deploy to Mason packing
 
