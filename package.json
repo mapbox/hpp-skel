@@ -2,7 +2,7 @@
   "name": "hpp-skel",
   "version": "1.0.0",
   "description": "Skeleton for C++ header-only libraries that can be included into other C++ projects.",
-  "main": "index.js",
+  "main": "include_dirs.js",
   "directories": {
     "test": "test"
   },
