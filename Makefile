@@ -15,13 +15,13 @@ endif
 
 default: test-$(BUILDTYPE)
 
-test-$(BUILDTYPE): tests/unit/* include/hello_world/* Makefile
+test-$(BUILDTYPE): tests/unit/* include/hello_world/hello_world.hpp Makefile
 	$(CXX) $(FINAL_FLAGS) tests/unit/*.cpp $(CXXFLAGS) -o test-$(BUILDTYPE)
 	./test-$(BUILDTYPE)
 
 test: test-$(BUILDTYPE)
 
-SOURCES = $(include/hello_world.hpp)
+SOURCES = $(include/hello_world/hello_world.hpp)
 HEADERS = $(wildcard include/hello_world/*.hpp)
 COMMON_DOC_FLAGS = --report --output docs $(HEADERS)
 

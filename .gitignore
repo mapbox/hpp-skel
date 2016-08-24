@@ -2,3 +2,5 @@
 mason_packages
 test
 node_modules
+test-Release
+test-Release.dSYM
