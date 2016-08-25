@@ -22,7 +22,7 @@ In general, there are three ways to include this header-only library:
 
 ##### Publish to NPM
 
-This repo includes a `package.json` and `.npmignore` that allow for the library to be published to npm. In another project, you can `npm install <PROJECT_NAME> --save` to give yourself access to the `.hpp` files. `hpp-skel` files, for instance, can be found at `node_modules/hpp-skel/include/hello_world.hpp`.
+This repo includes a `package.json` and `.npmignore` that allow for the library to be published to npm. In another project, you can `npm install <PROJECT_NAME> --save` to give yourself access to the `.hpp` files. `hpp-skel` files, for instance, can be found at `node_modules/hpp-skel/include/hello_world/hello_world.hpp`.
 
 The **include_dirs.js** file allows you to include header files using Node.js's `require()` syntax like this:
 

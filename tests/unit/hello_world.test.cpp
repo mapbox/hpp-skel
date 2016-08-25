@@ -1,4 +1,4 @@
-#include <hello_world.hpp>
+#include <hello_world/hello_world.hpp>
 
 #include <iostream>
 #include <cassert>
