@@ -13,6 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/mapbox/hpp-skel.git"
   },
+  "files": [
+    "include_dirs.js",
+    "include"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
