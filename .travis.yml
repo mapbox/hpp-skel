@@ -29,11 +29,11 @@ matrix:
 cache: apt
 
 install:
-  - | 
+  - |
     if [[ ${CXX} =~ "clang" ]] && [[ $(uname -s) == "Linux" ]]; then
       git clone --depth=1 https://github.com/mapbox/mason.git ./.mason
-      ./.mason/mason install clang 3.8.0
-      export PATH=$(./.mason/mason prefix clang 3.8.0)/bin:${PATH}
+      ./.mason/mason install clang 3.8.1
+      export PATH=$(./.mason/mason prefix clang 3.8.1)/bin:${PATH}
       which clang++
     fi
 
