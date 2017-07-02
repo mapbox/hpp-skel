@@ -11,14 +11,14 @@ matrix:
           packages: [ 'g++-5' ]
     - os: linux
       sudo: false
-      env: CXX=clang++-3.8 BUILDTYPE=Release
+      env: CXX=clang++ BUILDTYPE=Release
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     - os: linux
       sudo: false
-      env: CXX=clang++-3.8 BUILDTYPE=Debug CXXFLAGS="-fsanitize=address"
+      env: CXX=clang++ BUILDTYPE=Debug CXXFLAGS="-fsanitize=address"
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
@@ -32,8 +32,8 @@ install:
   - |
     if [[ ${CXX} =~ "clang" ]] && [[ $(uname -s) == "Linux" ]]; then
       git clone --depth=1 https://github.com/mapbox/mason.git ./.mason
-      ./.mason/mason install clang 3.8.1
-      export PATH=$(./.mason/mason prefix clang 3.8.1)/bin:${PATH}
+      ./.mason/mason install clang++ 4.0.0
+      export PATH=$(./.mason/mason prefix clang++ 4.0.0)/bin:${PATH}
       which clang++
     fi
 
