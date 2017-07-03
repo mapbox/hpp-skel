@@ -1,25 +1,24 @@
-Skeleton for C++ header-only libraries that can be included into other C++ projects.
+Skeleton for C++ header-only libraries that can be included into other C++ projects. This repository itself is a helper library. To use it for a specific project, edit filenames and tests accordingly.
 
 [![Build Status](https://travis-ci.org/mapbox/hpp-skel.svg?branch=master)](https://travis-ci.org/mapbox/hpp-skel)
 
-# What's in the box? :package:
-
-* **Tests**: located in the `test/` directory and rely on `<cassert>`. Run tests with `make test`.
-* **Documentation**: uses [cldoc](https://github.com/jessevdk/cldoc) to generate the `docs/` HTML pages. Build documentation with `make docs` (this will also install `cldoc`).
-* **Deployment**: Ready to deploy `.hpp` files to [Mason Packaging](https://github.com/mapbox/mason).
-
 # Usage
 
-This repository itself is a helper library. To use it for a specific project, make sure to update the following information:
+```cpp
+#include <include/hello_world/hello_world.hpp>
 
-* Change the `include/` directory to a more relevant namespace for your project
-* all occurances of Hello World (i.e. `test/unit/hello_world.cpp`) are just examples. Rename this files as appropriate.
-* the `package.json` is included specifically if you'd like to publish your header files to NPM. If you intend to do this, update the information in that file.
+using namespace hello_world;
+
+// exclaim a string
+std::string value = exclaim("hello");
+std::clog << value; // => hello!
+```
 
 # Test
 
-```
+```shell
 make test
+# test_exclaim ... success
 ```
 
 # Publish
