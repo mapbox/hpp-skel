@@ -11,7 +11,7 @@ namespace hello_world {
  */
 std::string exclaim (std::string message)
 {
-    std::string response = "!" + message + "!";
+    std::string response = message + "!";
     return response;
 }
 

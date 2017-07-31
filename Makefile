@@ -28,9 +28,3 @@ COMMON_DOC_FLAGS = --report --output docs $(HEADERS)
 clean:
 	rm -f test-Release
 	rm -f test-Debug
-
-cldoc:
-	pip install cldoc --user
-
-docs: cldoc
-	cldoc generate $(CXXFLAGS) -- $(COMMON_DOC_FLAGS)
