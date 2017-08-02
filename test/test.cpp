@@ -6,9 +6,9 @@
 using namespace hello_world;
 
 static void test_version() {
-  std::clog << "test_version ... ";
-  assert(VERSION_STRING == "0.0.1");
-  std::clog << "success!\n";
+    std::clog << "test_version ... ";
+    assert(VERSION_STRING == "0.0.1");
+    std::clog << "success!\n";
 }
 
 static void test_exclaim() {

@@ -17,8 +17,17 @@ std::clog << value; // => hello!
 # Test
 
 ```shell
+# build test binaries
+make
+
+# run tests
 make test
-# test_exclaim ... success
+```
+
+You can make Release test binaries as well
+```shell
+BUILDTYPE=Release make
+BUILDTYPE=Release make test
 ```
 
 # Publish
