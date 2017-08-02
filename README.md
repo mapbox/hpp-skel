@@ -5,7 +5,7 @@ Skeleton for C++ header-only libraries that can be included into other C++ proje
 # Usage
 
 ```cpp
-#include <include/hello_world/hello_world.hpp>
+#include <include/hello_world.hpp>
 
 using namespace hello_world;
 
@@ -23,7 +23,7 @@ make test
 
 # Publish
 
-We recommend publishing to [Mason](https://github.com/mapbox/mason), a C++ packaging manager that acts as a bucket for a number of project binaries. Binaries can be downloaded by project name and version number. In order to publish to Mason you must request the publish via a Pull Request to the [`scripts/` directory](https://github.com/mapbox/mason/tree/master/scripts) with your project materials.
+We recommend publishing header files to [Mason](https://github.com/mapbox/mason), the C++ packaging manager. Binaries can be downloaded by project name and version number. In order to publish to Mason you must request the publish via a Pull Request to the [`scripts/` directory](https://github.com/mapbox/mason/tree/master/scripts) with your project materials.
 
 Mason packages can be downloaded to your project by using the `mason install` command. This is best set up in a Makefile ([example](https://github.com/mapbox/geometry.hpp/blob/23b7fe66b11a4b7830c797817efe19660806d851/Makefile#L10)).
 
