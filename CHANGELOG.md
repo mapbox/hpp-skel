@@ -1,4 +1,4 @@
-# vNext
+# TBD
 
 * move include directory up a level, now just /include/hello_world.cpp
 * update test directory structure to just use test.cpp instead of splitting into unit tests
@@ -6,15 +6,11 @@
 * `make` command builds by default, tests are run with `make test`
 * add a version file [#19](https://github.com/mapbox/hpp-skel/issues/19)
 
-compare: https://github.com/mapbox/hpp-skel/compare/v1.0.0...v2.0.0
-
-# 1.0.0
+## 08/25/2016
 
 * nest hello_world within include directory named after library
 
-compare: https://github.com/mapbox/hpp-skel/compare/v0.0.2...v1.0.0
-
-# 0.0.2
+## 08/18/2016
 
 *	add debug/release builds + more aggressive warnings
 *	default to Release
@@ -22,8 +18,6 @@ compare: https://github.com/mapbox/hpp-skel/compare/v0.0.2...v1.0.0
 *	c++11 as default
 * add `include_dirs.js` for NPM publishing and requiring
 
-compare: https://github.com/mapbox/hpp-skel/compare/v0.0.1...v0.0.2
+## 07/20/2016
 
-# 0.0.1
-
-* first
+* the hpp-skel is born :baby:
