@@ -7,7 +7,7 @@ using namespace hello_world;
 
 static void test_version() {
     std::clog << "test_version ... ";
-    assert(VERSION_STRING == "0.0.1");
+    assert(HELLOWORLD_VERSION_STRING == "0.1.0");
     std::clog << "success!\n";
 }
 
