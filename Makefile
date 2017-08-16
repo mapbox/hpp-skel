@@ -13,11 +13,12 @@ else
 	FINAL_FLAGS := -g $(WARNING_FLAGS) $(DEBUG_FLAGS)
 endif
 
-default: test/* include/hello_world.hpp Makefile
+# otool -L build/Debug/test to see the dynamic library (loaded at runtime) deps of a given binary (they are "linked" to the binary or executable)
+default: test/* include/* Makefile
 	mkdir -p build build/Release build/Debug
-	$(CXX) $(FINAL_FLAGS) test/*.cpp $(CXXFLAGS) -o build/$(BUILDTYPE)/test
+	$(CXX) $(FINAL_FLAGS) test/*.cpp $(CXXFLAGS) -lz -o build/$(BUILDTYPE)/test
 
-test: build/$(BUILDTYPE)/test
+test: build/$(BUILDTYPE)/test default
 	./build/$(BUILDTYPE)/test
 
 clean:
