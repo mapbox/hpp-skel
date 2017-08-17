@@ -6,3 +6,4 @@
 // #include "gzip/version.hpp"
 #include "gzip/compress.hpp"
 #include "gzip/decompress.hpp"
+#include "gzip/utils.hpp"

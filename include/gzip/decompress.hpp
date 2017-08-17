@@ -6,7 +6,7 @@
 namespace gzip {
 
 // decodes both zlib and gzip
-// http://stackoverflow.com/a/1838702/2333354 .... I dont think this is relevant anymore?
+// http://stackoverflow.com/a/1838702/2333354
 std::string decompress(const char * data, std::size_t size) {
 
     std::string output;
