@@ -10,29 +10,49 @@
 //     std::clog << "success!\n";
 // }
 
-// TODO: port catch instead of using assert (https://github.com/philsquared/Catch)
-static void test_compress() {
-    std::clog << "test_compress... ";
+TEST_CASE("successful compress") {
     std::string data = "hello";
     std::string value = gzip::compress(data);
 
-    assert(value.size() > data.size());
-    std::clog << "success!\n";
+    REQUIRE(value.size() > data.size());
 }
 
-// TODO: port catch instead of using assert (https://github.com/philsquared/Catch)
-static void test_decompress() {
-    std::clog << "test_decompress... ";
+TEST_CASE("successful decompress") {
     std::string data = "hello";
-    std::string value = gzip::decompress(data);
+    std::string compressed_data = gzip::compress(data);
+    std::string value = gzip::decompress(compressed_data);
 
-    assert(value.size() < data.size());
-    std::clog << "success!\n";
+    REQUIRE(value.size() == data.size());
 }
 
-int main() {
-    // test_version();
-    test_compress();
-    test_decompress();
-    return 0;
+TEST_CASE("invalid decompression")
+{
+    std::string data("this is a string that should be compressed data");
+    // data is not compressed but we will try to decompress it
+
+    CHECK_THROWS(gzip::decompress(data));
+}
+
+TEST_CASE("round trip compression")
+{
+    std::string data("this is a sentence that will be compressed into something");
+    // CHECK(!gzip::is_compressed(data));
+    
+    int strategy;
+
+    SECTION("strategy - invalid compression")
+    {
+        strategy = 99;
+        int level = Z_DEFAULT_COMPRESSION;
+
+        CHECK_THROWS(gzip::compress(data, level, strategy));
+    }
+    
+    SECTION("compression level - invalid")
+    {
+        strategy = Z_DEFAULT_STRATEGY;
+        int level = 99;
+
+        CHECK_THROWS(gzip::compress(data, level, strategy));
+    }
 }
