@@ -1,8 +1,6 @@
 #include <iostream>
-
 // zlib
 #include <zlib.h>
-
 // std
 #include <stdexcept>
 
