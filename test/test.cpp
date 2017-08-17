@@ -33,31 +33,6 @@ TEST_CASE("invalid decompression")
     CHECK_THROWS(gzip::decompress(data));
 }
 
-// These came from zlib tests
-// TEST_CASE("round trip compression - zlib")
-// {
-//     std::string data("this is a sentence that will be compressed into something");
-//     // CHECK(!gzip::is_compressed(data));
-    
-//     int strategy;
-
-//     SECTION("strategy - invalid compression")
-//     {
-//         strategy = 99;
-//         int level = Z_DEFAULT_COMPRESSION;
-
-//         CHECK_THROWS(gzip::compress(data, level, strategy));
-//     }
-    
-//     SECTION("compression level - invalid")
-//     {
-//         strategy = Z_DEFAULT_STRATEGY;
-//         int level = 99;
-
-//         CHECK_THROWS(gzip::compress(data, level, strategy));
-//     }
-// }
-
 TEST_CASE("round trip compression - gzip")
 {
     std::string data("this is a sentence that will be compressed into something");
