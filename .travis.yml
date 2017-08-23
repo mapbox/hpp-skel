@@ -4,21 +4,21 @@ matrix:
   include:
     - os: linux
       sudo: false
-      env: CXX=g++-5 BUILDTYPE=Release
+      env: CXX=g++-5
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-5' ]
     - os: linux
       sudo: false
-      env: CXX=clang++ BUILDTYPE=Release
+      env: CXX=clang++
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     - os: linux
       sudo: false
-      env: CXX=clang++ BUILDTYPE=Debug CXXFLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all"
+      env: CXX=clang++ CXXFLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all"
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
@@ -38,4 +38,9 @@ install:
     fi
 
 script:
-  - make && make test
+  - make release
+  - make test
+  - make clean
+  - make debug
+  - make test
+  - make clean
