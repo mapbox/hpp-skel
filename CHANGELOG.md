@@ -1,4 +1,4 @@
-# TBD
+# 08/23/2017
 
 * move include directory up a level, now just /include/hello_world.cpp
 * update test directory structure to just use test.cpp instead of splitting into unit tests
