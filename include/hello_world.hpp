@@ -2,4 +2,5 @@
  *
  * Hello World implements a standard namespace with a few available functions.
  */
-#include "exclaim.hpp"
+#include "hello_world/version.hpp"
+#include "hello_world/exclaim.hpp"
