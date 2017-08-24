@@ -9,5 +9,8 @@ debug:
 test: default 
 	./build/unit-tests
 
+coverage:
+	./scripts/coverage.sh
+
 clean:
 	rm -rf build

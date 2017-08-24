@@ -24,17 +24,19 @@ matrix:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     - os: osx
-      osx_image: xcode7.3
+      osx_image: xcode8.3
 
-cache: apt
+env:
+  global:
+   - CMAKE_VERSION="3.8.2"
 
 install:
-  - git clone --depth=1 https://github.com/mapbox/mason.git ./.mason
-  - ./.mason/mason install clang++ 4.0.0
-  - export PATH=$(./.mason/mason prefix clang++ 4.0.0)/bin:${PATH}
-  - which clang++
-  - ./.mason/mason install cmake 3.8.2
-  - export PATH=$(./.mason/mason prefix cmake 3.8.2)/bin:${PATH}
+  # set up the environment by installing mason and clang++
+  - ./scripts/setup.sh --config local.env
+  # put mason and clang++ on PATH
+  - source local.env
+  - mason install cmake ${CMAKE_VERSION}
+  - mason link cmake ${CMAKE_VERSION}
   - which cmake
 
 script:
