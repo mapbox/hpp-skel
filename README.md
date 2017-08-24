@@ -24,10 +24,12 @@ make
 make test
 ```
 
-You can make Release test binaries as well
+The default test binaries will be built in release mode. You can make Debug test binaries as well:
+
 ```shell
-BUILDTYPE=Release make
-BUILDTYPE=Release make test
+make clean
+make debug
+make test
 ```
 
 ## Publishing
