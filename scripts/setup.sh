@@ -81,10 +81,8 @@ function run() {
     fi
     echo "export MASON_LLVM_RT_PRELOAD=${RT_PRELOAD}" >> ${config}
     SUPPRESSION_FILE="/tmp/leak_suppressions.txt"
-    echo "leak:__strdup" > ${SUPPRESSION_FILE}
-    echo "leak:v8::internal" >> ${SUPPRESSION_FILE}
-    echo "leak:node::CreateEnvironment" >> ${SUPPRESSION_FILE}
-    echo "leak:node::Init" >> ${SUPPRESSION_FILE}
+    # Add suppressions as needed
+    #echo "leak:__strdup" > ${SUPPRESSION_FILE}
     echo "export ASAN_SYMBOLIZER_PATH=${llvm_toolchain_dir}/bin/llvm-symbolizer" >> ${config}
     echo "export MSAN_SYMBOLIZER_PATH=${llvm_toolchain_dir}/bin/llvm-symbolizer" >> ${config}
     echo "export UBSAN_OPTIONS=print_stacktrace=1" >> ${config}
