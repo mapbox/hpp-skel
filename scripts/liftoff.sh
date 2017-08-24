@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # First create new repo on GitHub
 # Then run the following script from within local hpp-skel directory:
 #
