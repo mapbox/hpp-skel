@@ -14,3 +14,6 @@ coverage:
 
 clean:
 	rm -rf build
+
+format:
+	./scripts/format.sh

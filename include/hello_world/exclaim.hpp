@@ -9,7 +9,7 @@ namespace hello_world {
  *
  * @return your message with an exclamation point on each end.
  */
-std::string exclaim (std::string message)
+std::string exclaim(std::string message)
 {
     std::string response = message + "!";
     return response;
