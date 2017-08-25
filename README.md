@@ -36,11 +36,16 @@ Easily use this skeleton as a starting off point for your own custom project:
 ```
 # Clone hpp-skel locally
 git clone git@github.com:mapbox/hpp-skel.git
+cd hpp-skel/
 
 # Create your new repo on GitHub and have the remote repo url handy for liftoff
 # Then run the liftoff script from within your local hpp-skel root directory.
-# This will prompt you for the new name of your project and the new remote repo url, 
-# and it will automatically rename your local hpp-skel directory to the name of your project.
+#
+# This will:
+# - prompt you for the new name of your project and the new remote repo url
+# - automatically rename your local hpp-skel directory to the name of your project
+# - create a new branch called "hpp-skel-port"
+# - add, commit, and push
 ./scripts/liftoff.sh
 
 ```

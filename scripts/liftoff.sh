@@ -14,10 +14,11 @@ mv ../hpp-skel $name
 rm -rf .git
 git init
 
+git checkout -b hpp-skel-port
 git add .
-git commit -m "here we go"
+git commit -m "Port from hpp-skel"
 git remote add origin $url
-git push -u origin master
+git push -u origin hpp-skel-port
 
 # Perhaps useful for fresh start
 # rm -rf include/hello_world
