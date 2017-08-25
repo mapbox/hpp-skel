@@ -23,6 +23,12 @@ matrix:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
+    # Clang format build
+    - os: linux
+      sudo: false
+      script:
+        - make format
+      # override to run coverage builds
     - os: linux
       sudo: false
       env: CXX=clang++ CXXFLAGS="--coverage" LDFLAGS="--coverage"
@@ -30,7 +36,6 @@ matrix:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
-      # override to run coverage builds
       script:
         - make debug
         - make test
