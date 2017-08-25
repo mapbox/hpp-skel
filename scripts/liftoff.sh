@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+set -eu
+
 # First create new repo on GitHub
-# Then run the following script from within local hpp-skel root directory:
-#
-# liftoff.sh --name <new-name> --url <new-remote-repo-url> 
-#
+# Then run "./scripts/liftoff.sh" from within your local hpp-skel root directory
+
+echo "What is the name of your new project? "
+read name
+echo "What is the remote repo url for your new project? "
+read url
 
 mv ../hpp-skel $name
 rm -rf .git
