@@ -1,5 +1,7 @@
 # 08/25/2017
 
+* Add clang-format
+* Transition tests to use catch
 * [Port to cmake](https://github.com/mapbox/hpp-skel/pull/24)
 * [Add setup.sh and local coverage reporting](https://github.com/mapbox/hpp-skel/pull/27)
 * Add [first iteration](https://github.com/mapbox/hpp-skel/pull/29) of "liftoff" script
