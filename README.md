@@ -30,6 +30,21 @@ BUILDTYPE=Release make
 BUILDTYPE=Release make test
 ```
 
+## Customize
+Easily use this skeleton as a starting off point for your own custom project:
+
+```
+# Clone hpp-skel locally
+git clone git@github.com:mapbox/hpp-skel.git
+
+# Create your new repo on GitHub and have the remote repo url handy for liftoff
+# Then run the liftoff script from within your local hpp-skel root directory.
+# This will prompt you for the new name of your project and the new remote repo url, 
+# and it will automatically rename your local hpp-skel directory to the name of your project.
+./scripts/liftoff.sh
+
+```
+
 ## Publishing
 
 We recommend publishing header files to [Mason](https://github.com/mapbox/mason), the C++ packaging manager. Binaries can be downloaded by project name and version number. In order to publish to Mason you must request the publish via a Pull Request to the [`scripts/` directory](https://github.com/mapbox/mason/tree/master/scripts) with your project materials.
