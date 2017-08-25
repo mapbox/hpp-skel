@@ -13,7 +13,6 @@ Returns `0` if everything looks properly formatted.
 
 '
  # Set up the environment by installing mason and clang++
- # See https://github.com/mapbox/node-cpp-skel/blob/master/docs/extended-tour.md#configuration-files
 ./scripts/setup.sh --config local.env
 source local.env
 
