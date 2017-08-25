@@ -1,6 +1,7 @@
 Skeleton for C++ header-only libraries that can be included into other C++ projects. This repository itself is a helper library. To use it for a specific project, edit filenames and tests accordingly.
 
 [![Build Status](https://travis-ci.org/mapbox/hpp-skel.svg?branch=master)](https://travis-ci.org/mapbox/hpp-skel)
+[![codecov](https://codecov.io/gh/mapbox/hpp-skel/branch/master/graph/badge.svg)](https://codecov.io/gh/mapbox/hpp-skel)
 
 ## Usage
 
