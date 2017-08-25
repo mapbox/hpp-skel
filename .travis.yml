@@ -25,14 +25,13 @@ matrix:
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     # Clang format build
     - os: linux
-      language: generic
-      env: BUILDTYPE=debug
-      node_js: 4
-      # Overrides `install` to avoid initializing clang toolchain
-      install: 
-        - ./scripts/format.sh
-      # Overrides `script`, no need to run tests
-      before_script:
+      sudo: false
+      addons:
+        apt:
+          sources: [ 'ubuntu-toolchain-r-test' ]
+          packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
+      script:
+        - make format
 
 env:
   global:
