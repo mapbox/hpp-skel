@@ -12,4 +12,5 @@ include_directories(SYSTEM ${MASON_PACKAGE_catch_INCLUDE_DIRS})
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
-add_executable(unit-tests test/test.cpp)
+file(GLOB TEST_SOURCES test/*.cpp)
+add_executable(unit-tests ${TEST_SOURCES})
