@@ -2,6 +2,15 @@ language: generic
 
 matrix:
   include:
+    # clang-tidy specific job
+    - os: linux
+      sudo: false
+      addons:
+        apt:
+          sources: [ 'ubuntu-toolchain-r-test' ]
+          packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
+      script:
+        - make tidy
     - os: linux
       sudo: false
       env: CXX=g++-4.9
