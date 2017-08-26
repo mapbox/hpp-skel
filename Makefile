@@ -10,8 +10,8 @@ release:
 debug:
 	mkdir -p build && cd build && cmake ../ -DCMAKE_BUILD_TYPE=Debug -DWERROR=$(WERROR) && VERBOSE=1 cmake --build .
 
-test: default 
-	./build/unit-tests
+test:
+	@if [ -f ./build/unit-tests ]; then ./build/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 tidy:
 	./scripts/clang-tidy.sh
@@ -24,3 +24,5 @@ clean:
 
 format:
 	./scripts/format.sh
+
+.PHONY: test
