@@ -3,10 +3,10 @@
 #include <catch.hpp>
 
 TEST_CASE("test version") {
-    REQUIRE(HELLOWORLD_VERSION_STRING == "1.0.0");
+    REQUIRE(HELLOWORLD_VERSION_STRING == std::string("1.0.0"));
 }
 
 TEST_CASE("test_exclaim") {
     std::string value = hello_world::exclaim("hello");
-    REQUIRE(value == "hello!");
+    REQUIRE(value == std::string("hello!"));
 }
