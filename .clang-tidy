@@ -1,5 +1,5 @@
 ---
-Checks:          '*'
+Checks:          '*,-cert-err58-cpp'
 WarningsAsErrors: '*'
 HeaderFilterRegex: '\/include\/'
 AnalyzeTemporaryDtors: false
