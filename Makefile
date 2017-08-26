@@ -13,8 +13,14 @@ debug:
 test: default 
 	./build/unit-tests
 
+tidy:
+	./scripts/clang-tidy.sh
+
 coverage:
 	./scripts/coverage.sh
 
 clean:
 	rm -rf build
+
+format:
+	./scripts/format.sh

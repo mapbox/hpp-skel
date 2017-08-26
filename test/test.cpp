@@ -1,25 +1,12 @@
 #include <hello_world.hpp>
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
 
-#include <iostream>
-#include <cassert>
-
-using namespace hello_world;
-
-static void test_version() {
-    std::clog << "test_version ... ";
-    assert(HELLOWORLD_VERSION_STRING == "1.0.0");
-    std::clog << "success!\n";
+TEST_CASE("test version") {
+    REQUIRE(HELLOWORLD_VERSION_STRING == "1.0.0");
 }
 
-static void test_exclaim() {
-    std::clog << "test_exclaim ... ";
-    std::string value = exclaim("hello");
-    assert(value == "hello!");
-    std::clog << "success!\n";
-}
-
-int main() {
-    test_version();
-    test_exclaim();
-    return 0;
+TEST_CASE("test_exclaim") {
+    std::string value = hello_world::exclaim("hello");
+    REQUIRE(value == "hello!");
 }

@@ -1,3 +1,13 @@
+# 08/25/2017
+
+* Add clang-format
+* Transition tests to use catch
+* [Port to cmake](https://github.com/mapbox/hpp-skel/pull/24)
+* [Add setup.sh and local coverage reporting](https://github.com/mapbox/hpp-skel/pull/27)
+* Add [first iteration](https://github.com/mapbox/hpp-skel/pull/29) of "liftoff" script
+* [Glob tests in cmake](https://github.com/mapbox/hpp-skel/pull/30) for added flexibility 
+* [Disable OSX testing](https://github.com/mapbox/hpp-skel/pull/35) for now
+
 # 08/23/2017
 
 * move include directory up a level, now just /include/hello_world.cpp

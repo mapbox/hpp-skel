@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(hpp_skel LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/mason.cmake)
 
@@ -13,6 +14,7 @@ if (WERROR)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 endif()
 
+# mason_use is a mason function within the mason.cmake file and provides ready-to-go vars, like "STATIC_LIBS" and "INCLUDE_DIRS"
 mason_use(catch VERSION 1.9.6 HEADER_ONLY)
 include_directories(SYSTEM ${MASON_PACKAGE_catch_INCLUDE_DIRS})
 
