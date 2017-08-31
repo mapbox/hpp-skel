@@ -8,9 +8,18 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/mason.cmake)
 
 option(WERROR "Add -Werror flag to build (turns warnings into errors)" ON)
 
+# configure optimization
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(OPTIMIZATION_FLAGS "-O0 -DDEBUG")
+    message("-- Configuring debug build")
+else()
+    set(OPTIMIZATION_FLAGS "-O3 -DNDEBUG")
+    message("-- Configuring release build")
+endif()
+
 # Note: -D_GLIBCXX_USE_CXX11_ABI=0 is needed to support mason packages that are precompiled libs
 # Currently we only depend on a header only library, but this will help avoid issues when more libs are added via mason
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_GLIBCXX_USE_CXX11_ABI=0 -Wall -Wextra -pedantic -Wsign-compare -Wconversion -Wshadow")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OPTIMIZATION_FLAGS} -D_GLIBCXX_USE_CXX11_ABI=0 -Wall -Wextra -pedantic -Wsign-compare -Wconversion -Wshadow")
 
 if (WERROR)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
