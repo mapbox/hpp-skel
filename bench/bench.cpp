@@ -4,7 +4,7 @@
 static void BM_exclaim(benchmark::State& state) {
   while (state.KeepRunning()) {
     std::string value = hello_world::exclaim("hello");
-}
+  }
 }
 // Register the function as a benchmark
 BENCHMARK(BM_exclaim);
