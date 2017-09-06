@@ -62,6 +62,7 @@ matrix:
 env:
   global:
    - CMAKE_VERSION="3.8.2"
+   - BENCHMARK_VERSION="1.2.0"
 
 install:
   # set up the environment by installing mason and clang++
@@ -70,6 +71,8 @@ install:
   - source local.env
   - mason install cmake ${CMAKE_VERSION}
   - mason link cmake ${CMAKE_VERSION}
+  - mason install benchmark ${BENCHMARK_VERSION}
+  - mason link benchmark ${BENCHMARK_VERSION}
   - which cmake
 
 script:
