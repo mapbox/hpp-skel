@@ -13,6 +13,9 @@ debug:
 test:
 	@if [ -f ./build/unit-tests ]; then ./build/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
+bench:
+	./build/bench-tests
+
 tidy:
 	./scripts/clang-tidy.sh
 
