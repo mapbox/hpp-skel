@@ -37,8 +37,10 @@ include_directories("${PROJECT_SOURCE_DIR}/include")
 file(GLOB TEST_SOURCES test/*.cpp)
 add_executable(unit-tests ${TEST_SOURCES})
 
+# libbenchmark.a supports threads and therefore needs pthread support
+find_package(Threads REQUIRED)
 file(GLOB BENCH_SOURCES bench/*.cpp)
 add_executable(bench-tests ${BENCH_SOURCES})
 
 # link benchmark static library to the bench-tests binary so the bench tests know where to find the benchmark impl code
-target_link_libraries(bench-tests ${MASON_PACKAGE_benchmark_STATIC_LIBS})
+target_link_libraries(bench-tests ${MASON_PACKAGE_benchmark_STATIC_LIBS} ${CMAKE_THREAD_LIBS_INIT})
