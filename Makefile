@@ -14,7 +14,7 @@ test:
 	@if [ -f ./build/unit-tests ]; then ./build/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 bench:
-	./build/bench-tests
+	@if [ -f ./build/bench-tests ]; then ./build/bench-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 tidy:
 	./scripts/clang-tidy.sh
@@ -28,4 +28,4 @@ clean:
 format:
 	./scripts/format.sh
 
-.PHONY: test
+.PHONY: test bench
