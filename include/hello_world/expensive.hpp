@@ -4,7 +4,7 @@ namespace hello_world {
 
 // Expensive allocation of std::map, querying, and string comparison,
 // therefore threads are busy. This example is primarily used for benchmarking.
-std::string expensive(std::size_t work_to_do)
+inline std::string expensive(std::size_t work_to_do)
 {
 
     std::map<std::size_t, std::string> container;
@@ -27,7 +27,7 @@ std::string expensive(std::size_t work_to_do)
     }
 
     std::string result = "Expensive work is finished";
-    //std::cout << "hey";
+
     return result;
 }
 } // end hello_world namespace
