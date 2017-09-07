@@ -8,5 +8,3 @@ static void BM_exclaim(benchmark::State& state) {
 }
 // Register the function as a benchmark
 BENCHMARK(BM_exclaim);
-
-BENCHMARK_MAIN()
