@@ -14,7 +14,13 @@ test:
 	@if [ -f ./build/unit-tests ]; then ./build/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 bench:
-	@if [ -f ./build/bench-tests ]; then ./build/bench-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+	@if [ -f ./build/bench-tests ]; then ./build/bench-tests --benchmark_filter=all; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+
+bench-expensive:
+	@if [ -f ./build/bench-tests ]; then ./build/bench-tests --benchmark_filter=BM_expensive; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+
+bench-exclaim:
+	@if [ -f ./build/bench-tests ]; then ./build/bench-tests --benchmark_filter=BM_exclaim; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 tidy:
 	./scripts/clang-tidy.sh
