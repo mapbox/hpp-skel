@@ -13,15 +13,11 @@ static void BM_expensive(benchmark::State& state) {
   }
 }
 
-
-
 int main (int argc, char *argv[]) {
-  // int threads = std::atoi(argv[1]);
-  // int busy_cycles = std::atoi(argv[2]);
-  // std::cout << threads << '\n';
-  // std::cout << busy_cycles << '\n';
+  int threads = std::atoi(argv[1]);
+  int work_cycles = std::atoi(argv[2]);
 
-  benchmark::RegisterBenchmark("BM_expensive", BM_expensive)->Threads(2)->Arg(1000);
+  benchmark::RegisterBenchmark("BM_expensive", BM_expensive)->Threads(threads)->Arg(work_cycles);
   benchmark::Initialize(&argc, argv);
   benchmark::RunSpecifiedBenchmarks();
  
