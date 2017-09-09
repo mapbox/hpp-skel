@@ -14,16 +14,7 @@ test:
 	@if [ -f ./build/unit-tests ]; then ./build/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 bench:
-    # Usage: make bench threads=2 work=1000
-	@if [ -f ./build/bench-tests ]; then ./bench/run.sh "all" --threads=$(threads) --work=$(work); else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
-
-bench-expensive:
-	# Usage: make bench-expensive threads=2 work=1000
-	@if [ -f ./build/bench-tests ]; then ./bench/run.sh "BM_expensive" --threads=$(threads) --work=$(work); else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
-
-bench-exclaim:
-	# Usage: make bench-exclaim
-	@if [ -f ./build/bench-tests ]; then ./bench/run.sh "BM_exclaim"; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+	@if [ -f ./build/bench-tests ]; then ./build/bench-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
 
 tidy:
 	./scripts/clang-tidy.sh
