@@ -1,8 +1,8 @@
 #include <benchmark/benchmark.h>
 #include <hello_world.hpp>
 
-static void BM_expensive(benchmark::State& state)
-{ // NOLINT google-runtime-references
+static void BM_expensive(benchmark::State& state) // NOLINT google-runtime-references
+{
     if (state.thread_index == 0)
     {
     }
@@ -16,8 +16,8 @@ static void BM_expensive(benchmark::State& state)
     }
 }
 
-static void BM_exclaim(benchmark::State& state)
-{ // NOLINT google-runtime-references
+static void BM_exclaim(benchmark::State& state) // NOLINT google-runtime-references
+{
     while (state.KeepRunning())
     {
         std::string value = hello_world::exclaim("hello");
