@@ -23,6 +23,9 @@ make
 
 # run tests
 make test
+
+# run bench tests
+make bench
 ```
 
 The default test binaries will be built in release mode. You can make Debug test binaries as well:
@@ -52,6 +55,18 @@ cd hpp-skel/
 ./scripts/liftoff.sh
 
 ```
+
+## Benchmarks
+This skeleton uses [Google Benchmark](https://github.com/google/benchmark) to measure performance, and includes a [couple benchmark tests](https://github.com/mapbox/hpp-skel/blob/master/bench/run.cpp) to get you up and running quickly:
+- `BM_exlaim()`: Pretty barebone, simply testing string creation
+- `BM_expensive()`: Expensive allocation of std::map, querying, and string comparison, therefore threads are busy. This benchmark accepts an arg to specify amount of work you'd like the script to do (how big the map will be, how many times to convert an int to a string, and how many times to run the map lookup)
+
+#### Some notes on Google Benchmark results:
+- Number of Iterations is automatically set, based on how many iterations it takes to obtain sufficient data for the bench.
+- Results provide both wall time and CPU time. You may notice, the more threads used for the expensive code (up until the number of available cores on the machine), the longer CPU time will be and the shorter wall time will be. This is because the more code is shared between threads, the faster it can run in total time; the more threads doing work, the more processes running, therefore longer CPU time.
+
+#### Compiler Optimization
+To obtain a true benchmark, it may be necessary to prevent the compiler from optimizing away a value or expression. The skeleton uses Google Benchmark's internal functions to manage this. See https://github.com/google/benchmark#preventing-optimisation for more details.
 
 ## Publishing
 

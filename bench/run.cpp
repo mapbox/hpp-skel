@@ -1,19 +1,11 @@
 #include <benchmark/benchmark.h>
 #include <hello_world.hpp>
 
-// static void escape(void* p) 
-// {
-//   asm volatile("" : : "g"(p) : "memory");
-// }
-
-// static void clobber() {
-//   asm volatile("" : : : "memory");
-// }
-
 static void BM_expensive(benchmark::State& state) // NOLINT google-runtime-references
 {
     if (state.thread_index == 0)
     {
+        // Setup code here.
     }
     while (state.KeepRunning())
     {
@@ -32,6 +24,8 @@ static void BM_exclaim(benchmark::State& state) // NOLINT google-runtime-referen
     while (state.KeepRunning())
     {
         std::string value = hello_world::exclaim("hello");
+        benchmark::DoNotOptimize(value.data());
+        benchmark::ClobberMemory();
     }
 }
 
