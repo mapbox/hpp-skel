@@ -18,8 +18,8 @@ static void BM_expensive(benchmark::State& state) // NOLINT google-runtime-refer
     while (state.KeepRunning())
     {
         std::string value = hello_world::expensive(static_cast<std::size_t>(state.range(0)));
-        // benchmark::DoNotOptimize(value.data());
-        // benchmark::ClobberMemory();
+        benchmark::DoNotOptimize(value.data());
+        benchmark::ClobberMemory();
     }
     if (state.thread_index == 0)
     {
