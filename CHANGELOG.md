@@ -1,3 +1,13 @@
+# 09/12/2017
+* Add multithread benchmarking:
+* inline headers
+* collapse both benchmarks into one run.cpp
+* call binary directly from Makefile
+* [add ignores to codecov](https://github.com/mapbox/hpp-skel/pull/49)
+* [clang format fixes](https://github.com/mapbox/hpp-skel/pull/50)
+* Add clant-tidy NOLINT
+* anti-optimization and clobber methods
+
 # 08/25/2017
 
 * Add clang-format
