@@ -17,7 +17,7 @@ else()
     message("-- Configuring release build")
 endif()
 
-# Enable extra warnings to adher to https://github.com/mapbox/cpp/issues/37
+# Enable extra warnings to adhere to https://github.com/mapbox/cpp/issues/37
 set(DESIRED_WARNINGS "-Wall -Wextra -Wconversion -Wunreachable-code -Wuninitialized -pedantic-errors -Wold-style-cast -Wno-error=unused-variable -Wshadow -Wfloat-equal")
 
 # Note: -D_GLIBCXX_USE_CXX11_ABI=0 is needed to support mason packages that are precompiled libs
