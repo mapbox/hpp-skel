@@ -101,3 +101,13 @@ And lastly, mathematically checking for a specific version:
 // use feature provided in v2.0.1
 #endif
 ```
+
+# Contributing and License
+
+Contributors are welcome! :sparkles: This repo exists as a place to gather C++ Header Library knowledge that will benefit the larger community. Please contribute your knowledge if youd like.
+
+hpp-skel is licensed under [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/). Attribution is not required, but definitely welcome! If your project uses this skeleton, please add the hpp-skel badge to your readme so that others can learn about the resource:
+
+![]()
+
+See [CONTRIBUTING](CONTRIBUTING.md) and [LICENSE](LICENSE.md) for more info.
