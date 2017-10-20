@@ -3,6 +3,8 @@ Skeleton for C++ header-only libraries that can be included into other C++ proje
 [![Build Status](https://travis-ci.org/mapbox/hpp-skel.svg?branch=master)](https://travis-ci.org/mapbox/hpp-skel)
 [![codecov](https://codecov.io/gh/mapbox/hpp-skel/branch/master/graph/badge.svg)](https://codecov.io/gh/mapbox/hpp-skel)
 
+![dancing skel](https://mapbox.s3.amazonaws.com/cpp-assets/hpp-skel-readme_blue.png)
+
 ## Usage
 
 ```cpp
@@ -101,3 +103,18 @@ And lastly, mathematically checking for a specific version:
 // use feature provided in v2.0.1
 #endif
 ```
+
+# Contributing and License
+
+Contributors are welcome! :sparkles: This repo exists as a place to gather C++ Header Library knowledge that will benefit the larger community. Please contribute your knowledge if you'd like.
+
+hpp-skel is licensed under [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/). Attribution is not required, but definitely welcome! If your project uses this skeleton, please add the hpp-skel badge to your readme so that others can learn about the resource.
+
+[![badge](https://mapbox.s3.amazonaws.com/cpp-assets/hpp-skel-badge_blue.svg)](https://github.com/mapbox/hpp-skel)
+
+To include the badge, paste this into your README.md file:
+```
+[![badge](https://mapbox.s3.amazonaws.com/cpp-assets/hpp-skel-badge_blue.svg)](https://github.com/mapbox/hpp-skel)
+```
+
+See [CONTRIBUTING](CONTRIBUTING.md) and [LICENSE](LICENSE.md) for more info.
