@@ -38,6 +38,15 @@ make debug
 make test
 ```
 
+Enable additional sanitizers to catch hard-to-find bugs, for example:
+
+```shell
+export LDFLAGS="-fsanitize=address,undefined,integer"
+export CXXFLAGS="-fsanitize=address,undefined,integer"
+
+make
+```
+
 ## Customize
 Easily use this skeleton as a starting off point for your own custom project:
 
