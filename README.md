@@ -48,10 +48,12 @@ make
 ```
 
 ## Customize
-Easily use this skeleton as a starting off point for your own custom project:
+Easily use this skeleton as a starting off point.
 
+### Start new project
 ```
 # Clone hpp-skel locally
+
 git clone git@github.com:mapbox/hpp-skel.git
 cd hpp-skel/
 
@@ -60,12 +62,47 @@ cd hpp-skel/
 #
 # This will:
 # - prompt you for the new name of your project and the new remote repo url
-# - automatically rename your local hpp-skel directory to the name of your project
-# - create a new branch called "hpp-skel-port"
-# - add, commit, and push
+# - automatically create a new directory for your new project repo
+# - create a new branch called "hpp-skel-port" within your new repo directory
+# - add, commit, and push that branch to your new repo
+
 ./scripts/liftoff.sh
 
 ```
+
+### Add custom code
+Once your project has ported hpp-skel, follow these steps to integrate your own code:
+
+- Create a dir in `./include` to hold your custom code. See the example code within [`./include`](https://github.com/mapbox/hpp-skel/tree/master/include) for reference.
+- Create a new file within your new directory, and add your custom method or class.
+- Create a module header file (see [hello_world.hpp](https://github.com/mapbox/hpp-skel/blob/master/include/hello_world.hpp)), and `#include` your new method or class. Make sure this file matches the name of the directory you created in the first step above.
+- Run `make` and see what surprises await on your new journey :boat:
+- If it compiles succesfully, congrats :tada: If not, dont fret. Take a breath and read the error message.
+- To start putting your header lib to work, setup a test to make sure it is working as expected. 
+
+### Setup tests
+Since header-only libraries are _not_ normally compiled themselves, to test them you need to [#include](https://github.com/mapbox/cpp/blob/master/glossary.md#include) them in a `.cpp` file (aka a [translation unit](https://github.com/mapbox/cpp/blob/master/glossary.md#translation-unit)) to compile and run their code. We recommend using [Catch](https://github.com/catchorg/Catch2) to make writing this `.cpp` file easy.
+
+- Create a file in `/test` directory, and add the following (be sure to update relevant lines with the name of the header you created above):
+``` cpp
+#include <your_header_here.hpp>
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
+
+TEST_CASE("test_my_header")
+{
+    // Your test logic here
+}
+```
+- Fill in the TEST_CASE with relevant [Catch](https://github.com/catchorg/Catch2) logic (see [test.cpp](https://github.com/mapbox/hpp-skel/blob/master/test/test.cpp) for examples).
+- Tip: When calling your header method/class, make sure the namespace matches your header. For example
+``` cpp
+// "hello_world" is the namespace
+// "exclaim" is the method 
+
+std::string value = hello_world::exclaim("hello");
+```
+- Run `make test` to compile and run your test
 
 ## Benchmarks
 This skeleton uses [Google Benchmark](https://github.com/google/benchmark) to measure performance, and includes a [couple benchmark tests](https://github.com/mapbox/hpp-skel/blob/master/bench/run.cpp) to get you up and running quickly:
