@@ -48,7 +48,7 @@ make
 ```
 
 ## Customize
-Easily use this skeleton as a starting off point for a _new_ custom project:
+Easily use this skeleton as a starting off point.
 
 ### Start new project
 ```
@@ -73,17 +73,18 @@ cd hpp-skel/
 ### Add custom code
 Once your project has ported hpp-skel, follow these steps to integrate your own code:
 
-- Create a dir in `./include` to hold your custom code. See the example code within `/include` for reference.
-- Create a module header file (see [hello_world.hpp](https://github.com/mapbox/hpp-skel/blob/master/include/hello_world.hpp)), and `#include` your new method or class. Make sure this file matches the name of the directory you created in the bullet point above.
+- Create a dir in `./include` to hold your custom code. See the example code within [`./include`](https://github.com/mapbox/hpp-skel/tree/master/include) for reference.
+- Create a new file within your new directory, and add your custom method or class.
+- Create a module header file (see [hello_world.hpp](https://github.com/mapbox/hpp-skel/blob/master/include/hello_world.hpp)), and `#include` your new method or class. Make sure this file matches the name of the directory you created in the first step above.
 - Run `make` and see what surprises await on your new journey :boat:
 - If it compiles succesfully, congrats :tada: If not, dont fret. Take a breath and read the error message.
 - To start putting your header lib to work, setup a test to make sure it is working as expected. 
 
 ### Setup tests
-Since header-only libraries are _not_ compiled, they require a compiled parent. This is done by using the [`#include`](https://github.com/mapbox/cpp/blob/master/glossary.md#include) keyword. We can use a compiled test file to use your new header, using [Catch](https://github.com/catchorg/Catch2).
+Since header-only libraries are _not_ compiled, they require a compiled parent. This is done by using the [`#include`](https://github.com/mapbox/cpp/blob/master/glossary.md#include) keyword. We can use a compiled test file to use your new header, using [Catch](https://github.com/catchorg/Catch2) for assertions.
 
-- Create a file in `/test` directory, and add the following. Be sure to update relevant lines with the name of the header you created above:
-```
+- Create a file in `/test` directory, and add the following (be sure to update relevant lines with the name of the header you created above):
+``` cpp
 #include <your_header_here.hpp>
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
@@ -95,7 +96,7 @@ TEST_CASE("test_my_header")
 ```
 - Fill in the TEST_CASE with relevant [Catch](https://github.com/catchorg/Catch2) logic (see [test.cpp](https://github.com/mapbox/hpp-skel/blob/master/test/test.cpp) for examples).
 - Tip: When calling your header method/class, make sure the namespace matches your header. For example
-```
+``` cpp
 # "hello_world" is the namespace
 # "exclaim" is the method 
 std::string value = hello_world::exclaim("hello");
