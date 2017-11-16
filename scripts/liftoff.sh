@@ -4,13 +4,14 @@ set -eu
 
 # First create new repo on GitHub
 # Then run "./scripts/liftoff.sh" from within your local hpp-skel root directory
+# and will create your new local project repo side by side with node-cpp-skel directory
 
 echo "What is the name of your new project? "
 read name
 echo "What is the remote repo url for your new project? "
 read url
 
-mv ../hpp-skel $name
+mv ../hpp-skel ../$name
 rm -rf .git
 git init
 
