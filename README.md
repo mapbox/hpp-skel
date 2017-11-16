@@ -97,8 +97,9 @@ TEST_CASE("test_my_header")
 - Fill in the TEST_CASE with relevant [Catch](https://github.com/catchorg/Catch2) logic (see [test.cpp](https://github.com/mapbox/hpp-skel/blob/master/test/test.cpp) for examples).
 - Tip: When calling your header method/class, make sure the namespace matches your header. For example
 ``` cpp
-# "hello_world" is the namespace
-# "exclaim" is the method 
+// "hello_world" is the namespace
+// "exclaim" is the method 
+
 std::string value = hello_world::exclaim("hello");
 ```
 - Run `make test` to compile and run your test
