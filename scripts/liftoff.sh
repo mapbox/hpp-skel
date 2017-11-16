@@ -4,7 +4,7 @@ set -eu
 
 # First create new repo on GitHub and copy the SSH repo url
 # Then run "./scripts/liftoff.sh" from within your local hpp-skel root directory
-# and will create your new local project repo side by side with hpp-skel directory
+# and it will create your new local project repo side by side with hpp-skel directory
 
 echo "What is the name of your new project? "
 read name

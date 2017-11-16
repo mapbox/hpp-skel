@@ -48,10 +48,11 @@ make
 ```
 
 ## Customize
-Easily use this skeleton as a starting off point for your own custom project:
+Easily use this skeleton as a starting off point for a _new_ custom project:
 
 ```
 # Clone hpp-skel locally
+
 git clone git@github.com:mapbox/hpp-skel.git
 cd hpp-skel/
 
@@ -60,9 +61,10 @@ cd hpp-skel/
 #
 # This will:
 # - prompt you for the new name of your project and the new remote repo url
-# - automatically rename your local hpp-skel directory to the name of your project
-# - create a new branch called "hpp-skel-port"
-# - add, commit, and push
+# - automatically create a new directory for your new project repo
+# - create a new branch called "hpp-skel-port" within your new repo directory
+# - add, commit, and push that branch to your new repo
+
 ./scripts/liftoff.sh
 
 ```
