@@ -50,6 +50,7 @@ make
 ## Customize
 Easily use this skeleton as a starting off point for a _new_ custom project:
 
+### Start new project
 ```
 # Clone hpp-skel locally
 
@@ -68,6 +69,38 @@ cd hpp-skel/
 ./scripts/liftoff.sh
 
 ```
+
+### Add custom code
+Once your project has ported hpp-skel, follow these steps to integrate your own code:
+
+- Create a dir in `./include` to hold your custom code. See the example code within `/include` for reference.
+- Create a module header file (see [hello_world.hpp](https://github.com/mapbox/hpp-skel/blob/master/include/hello_world.hpp)), and `#include` your new method or class. Make sure this file matches the name of the directory you created in the bullet point above.
+- Run `make` and see what surprises await on your new journey :boat:
+- If it compiles succesfully, congrats :tada: If not, dont fret. Take a breath and read the error message.
+- To start putting your header lib to work, setup a test to make sure it is working as expected. 
+
+### Setup tests
+Since header-only libraries are _not_ compiled, they require a compiled parent. This is done by using the [`#include`](https://github.com/mapbox/cpp/blob/master/glossary.md#include) keyword. We can use a compiled test file to use your new header, using [Catch](https://github.com/catchorg/Catch2).
+
+- Create a file in `/test` directory, and add the following. Be sure to update relevant lines with the name of the header you created above:
+```
+#include <your_header_here.hpp>
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
+
+TEST_CASE("test_my_header")
+{
+    // Your test logic here
+}
+```
+- Fill in the TEST_CASE with relevant [Catch](https://github.com/catchorg/Catch2) logic (see [test.cpp](https://github.com/mapbox/hpp-skel/blob/master/test/test.cpp) for examples).
+- Tip: When calling your header method/class, make sure the namespace matches your header. For example
+```
+# "hello_world" is the namespace
+# "exclaim" is the method 
+std::string value = hello_world::exclaim("hello");
+```
+- Run `make test` to compile and run your test
 
 ## Benchmarks
 This skeleton uses [Google Benchmark](https://github.com/google/benchmark) to measure performance, and includes a [couple benchmark tests](https://github.com/mapbox/hpp-skel/blob/master/bench/run.cpp) to get you up and running quickly:
