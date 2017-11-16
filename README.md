@@ -81,7 +81,7 @@ Once your project has ported hpp-skel, follow these steps to integrate your own 
 - To start putting your header lib to work, setup a test to make sure it is working as expected. 
 
 ### Setup tests
-Since header-only libraries are _not_ compiled, they require a compiled parent. This is done by using the [`#include`](https://github.com/mapbox/cpp/blob/master/glossary.md#include) keyword. We can use a compiled test file to use your new header, using [Catch](https://github.com/catchorg/Catch2) for assertions.
+Since header-only libraries are _not_ normally compiled themselves, to test them you need to [#include](https://github.com/mapbox/cpp/blob/master/glossary.md#include) them in a `.cpp` file (aka a [translation unit](https://github.com/mapbox/cpp/blob/master/glossary.md#translation-unit)) to compile and run their code. We recommend using [Catch](https://github.com/catchorg/Catch2) to make writing this `.cpp` file easy.
 
 - Create a file in `/test` directory, and add the following (be sure to update relevant lines with the name of the header you created above):
 ``` cpp
