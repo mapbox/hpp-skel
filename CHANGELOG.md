@@ -1,4 +1,34 @@
+# 11/17/2017
+
+* Update contributing and changelog
+
+# 11/16/2017
+
+* Liftoff [docs and fix](https://github.com/mapbox/hpp-skel/pull/57)
+* ]iwyu fix](https://github.com/mapbox/hpp-skel/pull/59)
+
+# 10/30/2017
+
+* [Add docs](https://github.com/mapbox/hpp-skel/pull/56/files) for how to set sanitizer flags
+
+# 10/23/2017
+
+* Do not [sort includes with clang format](https://github.com/mapbox/hpp-skel/pull/55)
+
+# 10/20/2017
+
+* Add [CC0 license](https://github.com/mapbox/hpp-skel/pull/54)
+
+# 10/17/2017
+
+* Add better [default warnings](https://github.com/mapbox/hpp-skel/pull/52) and update compiler flags per https://github.com/mapbox/cpp/issues/37#issuecomment-336200744
+
+# 10/12/2017
+
+* Add compiler flags/warnings per https://github.com/mapbox/cpp/issues/37
+
 # 09/12/2017
+
 * Add multithread benchmarking:
 * inline headers
 * collapse both benchmarks into one run.cpp
