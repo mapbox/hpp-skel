@@ -4,7 +4,7 @@ Thanks for getting involved and contributing to the skel :tada: Below are a few 
 
 ## Code comments
 
-If adding new code, be sure to include relevant code comments. Code comments are useful not only to understand why you made a change, but they're also a great way for others to learn from your code. This is especially true within the skeleton, since it is made for learning.
+If adding new code, be sure to include relevant code comments. Code comments are a great way for others to learn from your code. This is especially true within the skeleton, since it is made for learning.
 
 ## Update Documentation
 
