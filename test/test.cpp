@@ -15,7 +15,7 @@ TEST_CASE("test_exclaim")
 
 TEST_CASE("test_expensive")
 {
-    std::size_t work = 10000000;
+    std::size_t work = 100;
     std::string result = hello_world::expensive(work);
     REQUIRE(result == std::string("Expensive work is finished"));
 }
