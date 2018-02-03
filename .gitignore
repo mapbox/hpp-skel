@@ -1,6 +1,6 @@
 .DS_Store
 mason_packages
-build
+cmake-build
 *.profdata
 *.profraw
 .toolchain
