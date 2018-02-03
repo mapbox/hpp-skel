@@ -1,0 +1,8 @@
+: 1
+name: hpp-skel
+version: 1.0.0
+summary: "Hello World" program
+license: BSD-2
+url: http://github.com/mapbox/hpp-skel
+email: dane@mapbbox.com
+requires: c++11

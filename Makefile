@@ -2,20 +2,33 @@
 # Whether to turn compiler warnings into errors
 export WERROR ?= true
 export BUILD_DIR ?= cmake-build
+CC := $(CC)
+CXX := $(CXX)
 
 default: release
 
-release:
-	mkdir -p ./$(BUILD_DIR) && cd ./$(BUILD_DIR) && cmake ../ -DCMAKE_BUILD_TYPE=Release -DWERROR=$(WERROR) && VERBOSE=1 cmake --build .
+local.env:
+	./scripts/setup.sh --config local.env
 
-debug:
-	mkdir -p ./$(BUILD_DIR) && cd ./$(BUILD_DIR) && cmake ../ -DCMAKE_BUILD_TYPE=Debug -DWERROR=$(WERROR) && VERBOSE=1 cmake --build .
+mason_packages: local.env
+	.mason/mason install build2 0.6.2
+	.mason/mason link build2 0.6.2
+	.mason/mason install catch 1.9.6
+	.mason/mason link catch 1.9.6
+	.mason/mason install benchmark 1.2.0
+	.mason/mason link benchmark 1.2.0
 
-test:
-	@if [ -f ./$(BUILD_DIR)/unit-tests ]; then ./$(BUILD_DIR)/unit-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+release: mason_packages
+	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.coptions="-O3 -DNDEBUG"
 
-bench:
-	@if [ -f ./$(BUILD_DIR)/bench-tests ]; then ./$(BUILD_DIR)/bench-tests; else echo "Please run 'make release' or 'make debug' first" && exit 1; fi
+debug: mason_packages
+	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.coptions="-O0 -g -DDEBUG"
+
+test: debug
+	mason_packages/.link/bin/b test
+
+bench: release
+	./bench/run
 
 tidy:
 	./scripts/clang-tidy.sh
@@ -24,7 +37,7 @@ coverage:
 	./scripts/coverage.sh
 
 clean:
-	rm -rf ./$(BUILD_DIR)
+	mason_packages/.link/bin/b clean
 
 distclean:
 	rm -rf mason_packages
@@ -34,5 +47,14 @@ distclean:
 
 format:
 	./scripts/format.sh
+
+tree:
+	rm -rf /tmp/hpp-skel-build
+	bpkg create -d /tmp/hpp-skel-build
+	bpkg build -d /tmp/hpp-skel-build ./
+	bpkg test -d /tmp/hpp-skel-build hpp-skel
+
+tree-clean:
+	bpkg clean -d /tmp/hpp-skel-build hpp-skel
 
 .PHONY: test bench

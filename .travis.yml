@@ -64,18 +64,7 @@ env:
    - CMAKE_VERSION="3.8.2"
 
 install:
-  # set up the environment by installing mason and clang++
-  - ./scripts/setup.sh --config local.env
-  # put mason and clang++ on PATH
-  - source local.env
-  - mason install cmake ${CMAKE_VERSION}
-  - mason link cmake ${CMAKE_VERSION}
-  - which cmake
+  - make b
 
 script:
-  - make release
-  - make test
-  - make clean
-  - make debug
-  - make test
-  - make clean
+  - make bc
