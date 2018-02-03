@@ -59,12 +59,9 @@ matrix:
         - chmod +x codecov
         - ./codecov -x "llvm-cov gcov" -Z
 
-env:
-  global:
-   - CMAKE_VERSION="3.8.2"
-
 install:
-  - make b
+  - make test
+  - make clean
 
 script:
-  - make bc
+  - make bench
