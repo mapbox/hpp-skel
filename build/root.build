@@ -1,0 +1,6 @@
+cxx.std = 11
+
+using cxx
+
+hxx{*}: extension = hpp
+cxx{*}: extension = cpp
