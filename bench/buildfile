@@ -1,5 +1,11 @@
 
 cxx.poptions+="-I$(src_root)/mason_packages/.link/include"
+
 cxx.libs += $(src_root)/mason_packages/.link/lib/libbenchmark.a
+
+if ($cxx.target.class != "windows")
+{
+  cxx.libs += -lpthread
+}
 
 exe{run}: cxx{*}
