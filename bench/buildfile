@@ -3,6 +3,13 @@ cxx.poptions+="-I$(src_root)/mason_packages/.link/include"
 
 cxx.libs += $(src_root)/mason_packages/.link/lib/libbenchmark.a
 
+print "building on $(cxx.target.class)"
+
+if ($cxx.target.class == "linux")
+{
+  cxx.libs += -lrt
+}
+
 if ($cxx.target.class != "windows")
 {
   cxx.libs += -lpthread
