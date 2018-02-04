@@ -4,7 +4,7 @@ matrix:
   include:
     # clang-tidy/format specific job
     - os: linux
-      sudo: false
+      sudo: required
       env: CLANG_FORMAT CLANG_TIDY
       addons:
         apt:
@@ -14,28 +14,28 @@ matrix:
         - make tidy
         - make format
     - os: linux
-      sudo: false
+      sudo: required
       env: CXX=g++-4.9
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-4.9' ]
     - os: linux
-      sudo: false
+      sudo: required
       env: CXX=g++-5
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-5' ]
     - os: linux
-      sudo: false
+      sudo: required
       env: CXX=clang++
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     - os: linux
-      sudo: false
+      sudo: required
       env: CXXFLAGS="-fsanitize=address,undefined,integer -fno-sanitize-recover=all"
       addons:
         apt:
@@ -43,7 +43,7 @@ matrix:
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     # coverage build
     - os: linux
-      sudo: false
+      sudo: required
       env: CXXFLAGS="--coverage" LDFLAGS="--coverage"
       addons:
         apt:
