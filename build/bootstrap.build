@@ -1,2 +1,7 @@
+project = hello
 
+using version
+using config
+using dist
 using test
+using install
