@@ -50,11 +50,11 @@ format:
 
 tree:
 	rm -rf /tmp/hpp-skel-build
-	bpkg create -d /tmp/hpp-skel-build
-	bpkg build -d /tmp/hpp-skel-build ./
-	bpkg test -d /tmp/hpp-skel-build hpp-skel
+	mason_packages/.link/bin/bpkg create -d /tmp/hpp-skel-build
+	mason_packages/.link/bin/bpkg build -d /tmp/hpp-skel-build ./
+	mason_packages/.link/bin/bpkg test -d /tmp/hpp-skel-build hpp-skel
 
 tree-clean:
-	bpkg clean -d /tmp/hpp-skel-build hpp-skel
+	mason_packages/.link/bin/bpkg clean -d /tmp/hpp-skel-build hpp-skel
 
 .PHONY: test bench
