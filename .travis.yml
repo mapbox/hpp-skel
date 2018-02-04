@@ -65,3 +65,6 @@ install:
 
 script:
   - make bench
+  - make clean
+  - make tree
+  - make tree-clean
