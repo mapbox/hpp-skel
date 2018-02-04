@@ -1,4 +1,4 @@
-cxx.std = 11
+cxx.std = c++11
 
 using cxx
 
