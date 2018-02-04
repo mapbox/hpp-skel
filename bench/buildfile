@@ -1,5 +1,5 @@
 
 cxx.poptions+="-I$(src_root)/mason_packages/.link/include"
-cxx.loptions="$(src_root)/mason_packages/.link/lib/libbenchmark.a"
+cxx.libs += $(src_root)/mason_packages/.link/lib/libbenchmark.a
 
 exe{run}: cxx{*}
