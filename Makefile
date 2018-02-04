@@ -18,7 +18,6 @@ mason_packages: local.env
 	.mason/mason install benchmark 1.2.0
 	.mason/mason link benchmark 1.2.0
 
-# on linux this results in terminating with uncaught exception of type std::__1::system_error: Resource temporarily unavailable
 release: mason_packages
 	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
 
