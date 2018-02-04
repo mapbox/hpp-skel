@@ -3,7 +3,7 @@
 set -eu
 set -o pipefail
 
-export MASON_RELEASE="${_MASON_RELEASE:-v0.17.0}"
+export MASON_RELEASE="${_MASON_RELEASE:-8d41104}"
 export MASON_LLVM_RELEASE="${_MASON_LLVM_RELEASE:-5.0.0}"
 
 PLATFORM=$(uname | tr A-Z a-z)

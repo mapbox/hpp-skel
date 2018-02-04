@@ -11,8 +11,8 @@ local.env:
 	./scripts/setup.sh --config local.env
 
 mason_packages: local.env
-	.mason/mason install build2 0.6.2
-	.mason/mason link build2 0.6.2
+	.mason/mason install build2 0.7.0-a.0.1517662481.a542a12b9195bb49
+	.mason/mason link build2 0.7.0-a.0.1517662481.a542a12b9195bb49
 	.mason/mason install catch 1.9.6
 	.mason/mason link catch 1.9.6
 	.mason/mason install benchmark 1.2.0
