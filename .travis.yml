@@ -68,7 +68,13 @@ install:
   - mason link catch 1.9.6
   - mason install benchmark 1.2.0
   - mason link benchmark 1.2.0
+  # release
   - b -v config.cxx=clang++ config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
+  - ./test/test
+  - ./bench/run
+  - b clean
+  # debug
+  - b -v config.cxx=clang++ config.cxx.coptions="-O0 -DDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
   - ./test/test
   - ./bench/run
   - b clean
