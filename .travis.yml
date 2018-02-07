@@ -60,18 +60,11 @@ matrix:
         - ./codecov -x "llvm-cov gcov" -Z
 
 install:
-  - ./scripts/setup.sh --config local.env
-  - source local.env
-  - mason install build2 0.7.0-a.0.1517662481.a542a12b9195bb49
-  - mason link build2 0.7.0-a.0.1517662481.a542a12b9195bb49
-  - mason install catch 1.9.6
-  - mason link catch 1.9.6
-  - mason install benchmark 1.2.0
-  - mason link benchmark 1.2.0
-  - b -v config.cxx=clang++ config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
-  - ./test/test
-  - ./bench/run
-  - b clean
+  - make test
+  - make clean
 
 script:
+  - make bench
   - make clean
+  - make tree
+  - make tree-clean
