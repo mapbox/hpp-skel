@@ -24,10 +24,10 @@ mason_packages: local.env
 	.mason/mason link benchmark 1.2.0
 
 release: mason_packages
-	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
+	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.loptions="${LDFLAGS}" config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 ${CXXFLAGS}"
 
 debug: mason_packages
-	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.coptions="-O0 -g -DDEBUG -D_GLIBCXX_USE_CXX11_ABI=0"
+	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.cxx.loptions="${LDFLAGS}" config.cxx.coptions="-O0 -g -DDEBUG -D_GLIBCXX_USE_CXX11_ABI=0  ${CXXFLAGS}"
 
 test: debug
 	mason_packages/.link/bin/b test
