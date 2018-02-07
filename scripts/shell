@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # works around this issue: https://stackoverflow.com/questions/16279867/gmake-change-the-stack-size-limit
 if [[ $(uname -s) == 'Linux' ]]; then
