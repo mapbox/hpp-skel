@@ -1,4 +1,4 @@
-project = hello
+project = hpp-skel
 
 using version
 using config
