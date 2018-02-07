@@ -1,4 +1,9 @@
 
+# use custom shell to prevent make from restricting
+# the stacksize which avoids this error:
+# terminating with uncaught exception of type std::__1::system_error: Resource temporarily unavailable
+SHELL := ./scripts/shell
+
 # Whether to turn compiler warnings into errors
 export WERROR ?= true
 export BUILD_DIR ?= cmake-build
