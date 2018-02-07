@@ -60,6 +60,9 @@ matrix:
         - ./codecov -x "llvm-cov gcov" -Z
 
 install:
+  # set CXX
+  - ./scripts/setup.sh --config local.env
+  - source local.env
   - make test
   - make clean
 
