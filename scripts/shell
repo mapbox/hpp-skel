@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# works around this issue: https://stackoverflow.com/questions/16279867/gmake-change-the-stack-size-limit
+if [[ $(uname -s) == 'Linux' ]]; then
+    ulimit -S -s 131072
+fi
+exec /bin/sh "$@"
