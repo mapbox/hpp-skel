@@ -25,6 +25,11 @@ coverage:
 clean:
 	rm -rf build
 
+distclean: clean
+	rm -rf mason_packages
+	rm -rf .mason
+	rm -f local.env
+
 format:
 	./scripts/format.sh
 
