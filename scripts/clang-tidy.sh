@@ -25,7 +25,7 @@ if [[ ! -f PATH_TO_CLANG_TIDY_SCRIPT ]]; then
 fi
 
 # build the compile_commands.json file if it does not exist
-if [[ ! -f build/compile_commands.json ]]; then
+if [[ ! -f cmake-build/compile_commands.json ]]; then
     # the build automatically puts the compile commands in the ./build directory
     make
 
@@ -33,6 +33,6 @@ fi
 
 # change into the build directory so that clang-tidy can find the files
 # at the right paths (since this is where the actual build happens)
-cd build
+cd cmake-build
 ${PATH_TO_CLANG_TIDY_SCRIPT} -fix
 
