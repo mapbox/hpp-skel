@@ -25,16 +25,16 @@ coverage:
 
 clean:
 	rm -rf ./$(BUILD_DIR)
-
-distclean:
-	rm -rf mason_packages
-	rm -rf .mason
-	rm -rf .toolchain
-	rm -rf local.env
+	# remove remains from running 'make coverage'
+	rm -f *.profraw
+	rm -f *.profdata
+	@echo "run 'make distclean' to also clear mason_packages, .mason, and .toolchain directories"
 
 distclean: clean
 	rm -rf mason_packages
+	# remove remains from running './scripts/setup.sh'
 	rm -rf .mason
+	rm -rf .toolchain
 	rm -f local.env
 
 format:
