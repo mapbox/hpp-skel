@@ -15,4 +15,4 @@ inline std::string exclaim(std::string message)
     return response;
 }
 
-} // end hello_world namespace
+} // namespace hello_world

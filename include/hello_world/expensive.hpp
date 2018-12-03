@@ -31,4 +31,4 @@ inline std::string expensive(std::size_t work_to_do)
 
     return result;
 }
-} // end hello_world namespace
+} // namespace hello_world

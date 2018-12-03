@@ -44,11 +44,12 @@ coverage:
 clean:
 	mason_packages/.link/bin/b clean
 
-distclean:
+distclean: clean
 	rm -rf mason_packages
+	# remove remains from running './scripts/setup.sh'
 	rm -rf .mason
 	rm -rf .toolchain
-	rm -rf local.env
+	rm -f local.env
 
 format:
 	./scripts/format.sh
