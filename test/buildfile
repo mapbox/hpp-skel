@@ -1,0 +1,6 @@
+
+cxx.poptions="-I$(src_root)/include"
+cxx.poptions+="-I$(src_root)/mason_packages/.link/include/"
+
+exe{test}: cxx{*}
+exe{test}: test = true
