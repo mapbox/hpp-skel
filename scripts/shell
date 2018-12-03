@@ -1,4 +1,6 @@
 #!/bin/bash
 
-source local.env
+if [ -f local.env ]; then
+  source local.env
+fi
 exec /bin/sh "$@"
