@@ -18,8 +18,8 @@ mason_packages: local.env
 	.mason/mason link build2 0.8.0
 	.mason/mason install catch 1.9.6
 	.mason/mason link catch 1.9.6
-	.mason/mason install benchmark 1.2.0
-	.mason/mason link benchmark 1.2.0
+	.mason/mason install benchmark 1.4.1
+	.mason/mason link benchmark 1.4.1
 
 release: mason_packages
 	mason_packages/.link/bin/b -v config.cxx=$(CXX) config.bin.ar=llvm-ar config.cxx.loptions="${LDFLAGS}" config.cxx.coptions="-O3 -DNDEBUG -D_GLIBCXX_USE_CXX11_ABI=0 ${CXXFLAGS}"
