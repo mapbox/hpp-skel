@@ -1,7 +1,5 @@
 
-# use custom shell to prevent make from restricting
-# the stacksize which avoids this error:
-# terminating with uncaught exception of type std::__1::system_error: Resource temporarily unavailable
+# use custom shell to set up env
 SHELL := ./scripts/shell
 
 # Whether to turn compiler warnings into errors
