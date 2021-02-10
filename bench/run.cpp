@@ -1,5 +1,5 @@
-#include <benchmark/benchmark.h>
 #include <hello_world.hpp>
+#include <benchmark/benchmark.h>
 
 static void BM_expensive(benchmark::State& state) // NOLINT google-runtime-references
 {
@@ -29,7 +29,7 @@ static void BM_exclaim(benchmark::State& state) // NOLINT google-runtime-referen
     }
 }
 
-int main(int argc, char* argv[])
+auto main(int argc, char* argv[]) -> int
 {
     benchmark::RegisterBenchmark("BM_exclaim", BM_exclaim)->Threads(2)->Threads(4)->Threads(8);                   // NOLINT clang-analyzer-cplusplus.NewDeleteLeaks
     benchmark::RegisterBenchmark("BM_expensive", BM_expensive)->Threads(2)->Threads(4)->Threads(8)->Arg(1000000); // NOLINT clang-analyzer-cplusplus.NewDeleteLeaks

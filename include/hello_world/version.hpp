@@ -1,3 +1,6 @@
+#ifndef HELLO_WORLD_VERSION_HPP
+#define HELLO_WORLD_VERSION_HPP
+
 #pragma once
 
 /// The major version number
@@ -14,3 +17,5 @@
 
 /// Version number as string
 #define HELLOWORLD_VERSION_STRING "1.0.0"
+
+#endif

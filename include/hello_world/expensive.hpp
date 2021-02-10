@@ -1,11 +1,14 @@
+#ifndef HELLO_WORLD_EXPENSIVE_HPP
+#define HELLO_WORLD_EXPENSIVE_HPP
+
 #include <map>
-#include <string>
+#include <cstddef>
 
 namespace hello_world {
 
 // Expensive allocation of std::map, querying, and string comparison,
 // therefore threads are busy. This example is primarily used for benchmarking.
-inline std::string expensive(std::size_t work_to_do)
+inline auto expensive(std::size_t work_to_do) -> std::string
 {
 
     std::map<std::size_t, std::string> container;
@@ -32,3 +35,4 @@ inline std::string expensive(std::size_t work_to_do)
     return result;
 }
 } // namespace hello_world
+#endif
