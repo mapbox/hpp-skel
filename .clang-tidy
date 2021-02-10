@@ -1,7 +1,7 @@
 ---
 # clang-analyzer-core.uninitialized.UndefReturn can be removed once LLVM is upgrade to fix
 # https://bugs.llvm.org/show_bug.cgi?id=39201
-Checks:          '*,-llvmlibc-restrict-system-libc-headers,-fuchsia-default-arguments,-clang-analyzer-core.uninitialized.UndefReturn'
+Checks:          '*,-llvmlibc*,-fuchsia-default-arguments,-clang-analyzer-core.uninitialized.UndefReturn'
 WarningsAsErrors: '*'
 HeaderFilterRegex: '\/include\/'
 AnalyzeTemporaryDtors: false
