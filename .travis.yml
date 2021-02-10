@@ -4,7 +4,6 @@ matrix:
   include:
     # clang-tidy/format specific job
     - os: linux
-      sudo: false
       env: CLANG_FORMAT CLANG_TIDY
       addons:
         apt:
@@ -14,21 +13,18 @@ matrix:
         - make tidy
         - make format
     - os: linux
-      sudo: false
       env: CXX=g++-4.9
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-4.9' ]
     - os: linux
-      sudo: false
       env: CXX=g++-5
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-5' ]
     - os: linux
-      sudo: false
       env: CXX=clang++
       addons:
         apt:
@@ -43,7 +39,6 @@ matrix:
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     # coverage build
     - os: linux
-      sudo: false
       env: CXXFLAGS="--coverage" LDFLAGS="--coverage"
       addons:
         apt:
@@ -61,7 +56,7 @@ matrix:
 
 env:
   global:
-   - CMAKE_VERSION="3.8.2"
+   - CMAKE_VERSION="3.15.2"
 
 install:
   # set up the environment by installing mason and clang++
