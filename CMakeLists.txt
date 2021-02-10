@@ -32,7 +32,7 @@ if (WERROR)
 endif()
 
 # mason_use is a mason function within the mason.cmake file and provides ready-to-go vars, like "STATIC_LIBS" and "INCLUDE_DIRS"
-mason_use(catch VERSION 2.4.0 HEADER_ONLY)
+mason_use(catch VERSION 2.12.1 HEADER_ONLY)
 include_directories(SYSTEM ${MASON_PACKAGE_catch_INCLUDE_DIRS})
 
 mason_use(benchmark VERSION 1.4.1)
