@@ -1,7 +1,7 @@
 ---
 # clang-analyzer-core.uninitialized.UndefReturn can be removed once LLVM is upgrade to fix
 # https://bugs.llvm.org/show_bug.cgi?id=39201
-Checks:          '*,-cppcoreguidelines-avoid-magic-numbers,-llvmlibc*,-cppcoreguidelines-macro-usage,-fuchsia*,-clang-analyzer-core.uninitialized.UndefReturn'
+Checks:          '*,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-llvmlibc*,-cppcoreguidelines-macro-usage,-fuchsia*,-clang-analyzer-core.uninitialized.UndefReturn'
 WarningsAsErrors: '*'
 HeaderFilterRegex: '\/include\/'
 AnalyzeTemporaryDtors: false
