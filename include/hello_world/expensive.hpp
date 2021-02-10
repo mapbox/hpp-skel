@@ -1,8 +1,8 @@
 #ifndef HELLO_WORLD_EXPENSIVE_HPP
 #define HELLO_WORLD_EXPENSIVE_HPP
 
-#include <map>
 #include <cstddef>
+#include <map>
 
 namespace hello_world {
 

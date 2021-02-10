@@ -1,5 +1,5 @@
-#include <hello_world.hpp>
 #include <benchmark/benchmark.h>
+#include <hello_world.hpp>
 
 static void BM_expensive(benchmark::State& state) // NOLINT google-runtime-references
 {
