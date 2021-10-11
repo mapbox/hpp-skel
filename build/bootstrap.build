@@ -1,0 +1,7 @@
+project = hpp-skel
+
+using version
+using config
+using dist
+using test
+using install

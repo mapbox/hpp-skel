@@ -13,17 +13,12 @@ matrix:
         - make tidy
         - make format
     - os: linux
-      env: CXX=g++-4.9
+      sudo: false
+      env: CXX=g++-8
       addons:
         apt:
           sources: [ 'ubuntu-toolchain-r-test' ]
-          packages: [ 'g++-4.9' ]
-    - os: linux
-      env: CXX=g++-5
-      addons:
-        apt:
-          sources: [ 'ubuntu-toolchain-r-test' ]
-          packages: [ 'g++-5' ]
+          packages: [ 'g++-8' ]
     - os: linux
       env: CXX=clang++
       addons:
@@ -54,23 +49,12 @@ matrix:
         - chmod +x codecov
         - ./codecov -x "llvm-cov gcov -l" -Z
 
-env:
-  global:
-   - CMAKE_VERSION="3.15.2"
-
 install:
-  # set up the environment by installing mason and clang++
+  # set CXX
   - ./scripts/setup.sh --config local.env
-  # put mason and clang++ on PATH
   - source local.env
-  - mason install cmake ${CMAKE_VERSION}
-  - mason link cmake ${CMAKE_VERSION}
-  - which cmake
+  - make test
+  - make clean
 
 script:
-  - make release
-  - make test
-  - make clean
-  - make debug
-  - make test
-  - make clean
+  - make bench
