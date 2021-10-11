@@ -1,3 +1,6 @@
+#ifndef HELLO_WORLD_EXCLAIM_HPP
+#define HELLO_WORLD_EXCLAIM_HPP
+
 #include <string>
 
 namespace hello_world {
@@ -9,10 +12,12 @@ namespace hello_world {
  *
  * @return your message with an exclamation point on each end.
  */
-inline std::string exclaim(std::string message)
+inline auto exclaim(const std::string& message) -> std::string
 {
     std::string response = message + "!";
     return response;
 }
 
 } // namespace hello_world
+
+#endif

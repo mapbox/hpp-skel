@@ -3,8 +3,8 @@
 set -eu
 set -o pipefail
 
-export MASON_RELEASE="${_MASON_RELEASE:-v0.19.0}"
-export MASON_LLVM_RELEASE="${_MASON_LLVM_RELEASE:-5.0.1}"
+export MASON_RELEASE="${_MASON_RELEASE:-v0.23.0}"
+export MASON_LLVM_RELEASE="${_MASON_LLVM_RELEASE:-11.0.0}"
 
 PLATFORM=$(uname | tr A-Z a-z)
 if [[ ${PLATFORM} == 'darwin' ]]; then
@@ -38,9 +38,6 @@ function run() {
     if [[ -d ${GLOBAL_LLVM} ]]; then
       echo "Detected '${GLOBAL_LLVM}/bin/clang++', using it"
       local llvm_toolchain_dir=${GLOBAL_LLVM}
-    elif [[ -d ${GLOBAL_CLANG} ]]; then
-      echo "Detected '${GLOBAL_CLANG}/bin/clang++', using it"
-      local llvm_toolchain_dir=${GLOBAL_CLANG}
     elif [[ -d ${GLOBAL_CLANG} ]]; then
       echo "Detected '${GLOBAL_CLANG}/bin/clang++', using it"
       local llvm_toolchain_dir=${GLOBAL_CLANG}

@@ -4,7 +4,6 @@ matrix:
   include:
     # clang-tidy/format specific job
     - os: linux
-      sudo: false
       env: CLANG_FORMAT CLANG_TIDY
       addons:
         apt:
@@ -21,7 +20,6 @@ matrix:
           sources: [ 'ubuntu-toolchain-r-test' ]
           packages: [ 'g++-8' ]
     - os: linux
-      sudo: false
       env: CXX=clang++
       addons:
         apt:
@@ -36,7 +34,6 @@ matrix:
           packages: [ 'libstdc++6', 'libstdc++-5-dev' ]
     # coverage build
     - os: linux
-      sudo: false
       env: CXXFLAGS="--coverage" LDFLAGS="--coverage"
       addons:
         apt:
@@ -50,7 +47,7 @@ matrix:
         - mason link llvm-cov ${MASON_LLVM_RELEASE}
         - curl -S -f https://codecov.io/bash -o codecov
         - chmod +x codecov
-        - ./codecov -x "llvm-cov gcov" -Z
+        - ./codecov -x "llvm-cov gcov -l" -Z
 
 install:
   # set CXX
