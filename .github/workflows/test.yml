@@ -1,0 +1,48 @@
+name: mapbox/hpp-skel
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    permissions:
+      id-token: write
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        cxx: ['g++-4.9', 'g++-5', 'clang++']
+        cmake-version: ['3.15.2']
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install packages
+        run: |
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+          sudo apt update
+          sudo apt-get install -y libstdc++6 libstdc++-5-dev g++-4.9 g++-5
+
+      - name: Install and setup
+        run: |
+          ./scripts/setup.sh --config local.env
+          source local.env
+          mason install cmake ${{ matrix.cmake-version }}
+          mason link cmake ${{ matrix.cmake-version }}
+          which cmake
+
+      - name: Run tests
+        run: |
+          make release
+          make test
+          make clean
+          make debug
+          make test
+          make clean
+        env:
+          CXX: ${{ matrix.cxx }}
